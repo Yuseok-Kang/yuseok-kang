@@ -1,0 +1,161 @@
+--CREATE TABLE death
+CREATE TABLE public.death
+(
+person_id bigint,
+death_date date,
+death_datetime date,
+death_type int,
+cause_concept_id int,
+cause_source_value bigint,
+cause_source_concept_id int
+);
+
+COPY death(person_id, death_date, death_datetime, death_type, cause_concept_id, cause_source_value, cause_source_concept_id)
+FROM 'C:\healthcare\death.csv'
+DELIMITER ','
+CSV HEADER;
+
+--CREATE TABLE concept
+drop table concept
+
+CREATE TABLE public.concept
+(
+concept_id bigint,
+concept_name varchar(300),
+domain_id varchar(20),
+vocabulary_id varchar(20),
+concept_class_id varchar(20),
+standard_concept varchar(1),
+concept_code varchar(50),
+valid_start_date date,
+valid_end_date date,
+invalid_reason varchar(1)
+);
+
+COPY concept(concept_id, concept_name, domain_id, vocabulary_id, concept_class_id, standard_concept, concept_code, valid_start_date, valid_end_date, invalid_reason)
+FROM 'C:\healthcare\concept.csv'
+DELIMITER ','
+CSV HEADER;
+
+--CREATE TABLE condition_occurrence
+CREATE TABLE public.condition_occurrence
+(
+condition_occurrence_id int,
+person_id varchar(30),
+condition_concept_id varchar(30),
+condition_start_date date,
+condition_start_datetime timestamp,
+condition_end_date date,
+condition_end_datetime timestamp,
+condition_type_concept_id int,
+stop_reason int,
+provider_id int,
+visit_occurrence_id int,
+visit_detail_id int,
+condition_source_value bigint,
+condition_source_concept_id int,
+condition_status_source_value int,
+condition_status_concept_id int
+);
+
+COPY condition_occurrence(condition_occurrence_id,person_id,condition_concept_id,condition_start_date,condition_start_datetime,condition_end_date,condition_end_datetime,condition_type_concept_id,stop_reason,provider_id,visit_occurrence_id,visit_detail_id,condition_source_value,condition_source_concept_id,condition_status_source_value,condition_status_concept_id
+)
+FROM 'C:\healthcare\condition_occurrence.csv'
+DELIMITER ','
+CSV HEADER;
+
+--CREATE TABLE condition_occurrence
+
+CREATE TABLE public.condition_occurrence
+(
+condition_occurrence_id int,
+person_id int,
+condition_concept_id bigint,
+condition_start_date date,
+condition_start_datetime timestamp,
+condition_end_date date,
+condition_end_datetime timestamp,
+condition_type_concept_id int,
+stop_reason int,
+provider_id int,
+visit_occurrence_id int,
+visit_detail_id int,
+condition_source_value bigint,
+condition_source_concept_id int,
+condition_status_source_value int,
+condition_status_concept_id int
+);
+
+COPY condition_occurrence(condition_occurrence_id,person_id,condition_concept_id,condition_start_date,condition_start_datetime,condition_end_date,condition_end_datetime,condition_type_concept_id,stop_reason,provider_id,visit_occurrence_id,visit_detail_id,condition_source_value,condition_source_concept_id,condition_status_source_value,condition_status_concept_id
+)
+FROM 'C:\healthcare\condition_occurrence.csv'
+DELIMITER ','
+CSV HEADER;
+
+
+
+--CREATE TABLE drug_exposure
+CREATE TABLE public.drug_exposure
+(
+drug_exposure_id int,
+person_id int,
+drug_concept_id int,
+drug_exposure_start_date date,
+drug_exposure_start_datetime timestamp,
+drug_exposure_end_date date,
+drug_exposure_end_datetime timestamp,
+verbatim_end_date date,
+drug_type_concept_id int,
+stop_reason varchar(20),
+refills int,
+quantity int,
+days_supply int,
+sig int,
+route_concept_id int,
+lot_number int,
+provider_id int,
+visit_occurrence_id int,
+visit_detail_id int,
+drug_source_value int,
+drug_source_concept_id int,
+route_source_value int,
+dose_unit_source_value int
+);
+
+COPY drug_exposure(drug_exposure_id,person_id,drug_concept_id,drug_exposure_start_date,drug_exposure_start_datetime,drug_exposure_end_date,drug_exposure_end_datetime,verbatim_end_date,drug_type_concept_id,stop_reason,refills,quantity,days_supply,sig,route_concept_id,lot_number,provider_id,visit_occurrence_id,visit_detail_id,drug_source_value,drug_source_concept_id,route_source_value,dose_unit_source_value
+)
+FROM 'C:\healthcare\drug_exposure.csv'
+DELIMITER ','
+CSV HEADER;
+
+
+--CREATE TABLE person
+
+
+CREATE TABLE public.person
+(
+person_id int,
+gender_concept_id int,
+year_of_birth int,
+month_of_birth int,
+day_of_birth int,
+birth_datetime timestamp,
+race_concept_id int,
+ethnicity_concept_id int,
+location_id int,
+provider_id int,
+care_site_id int,
+person_source_value varchar(50),
+gender_source_value varchar(1),
+gender_source_concept_id int,
+race_source_value varchar(20),
+race_source_concept_id int,
+ethnicity_source_value varchar(20),
+ethnicity_source_concept_id int
+);
+
+COPY person(person_id,gender_concept_id,year_of_birth,month_of_birth,day_of_birth,birth_datetime,race_concept_id,ethnicity_concept_id,location_id,provider_id,care_site_id,person_source_value,gender_source_value,gender_source_concept_id,race_source_value,race_source_concept_id,ethnicity_source_value,ethnicity_source_concept_id
+)
+FROM 'C:\healthcare\person.csv'
+DELIMITER ','
+CSV HEADER;
